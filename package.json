@@ -1,21 +1,37 @@
 {
   "dependencies": {
+    "classnames": "2.5.1",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-scripts": "^5.0.0"
+    "react-dom": "^18.0.0"
   },
-  "main": "/index.js",
   "devDependencies": {
-    "react-scripts": "1.0.0"
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.6",
+    "@types/react": "^18.2.75",
+    "@types/react-dom": "^18.2.24",
+    "react-scripts": "^5.0.0",
+    "typescript": "^4.9.5"
   },
   "keywords": [],
   "name": "react-playground",
-  "description": null,
+  "description": "",
   "version": "0.0.31",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

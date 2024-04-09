@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import classNames from 'classnames';
+
+import './Task.css'
 
 function Task({ task, onChange, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -26,8 +29,11 @@ function Task({ task, onChange, onDelete }) {
       </>
     );
   }
+  const itemClassName = classNames({
+    'item': !isEditing, 
+  })
   return (
-    <label>
+    <label className={itemClassName}>
       <input
         type="checkbox"
         checked={task.done}
