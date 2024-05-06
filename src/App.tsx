@@ -5,7 +5,7 @@ import tasksReducer from './tasksReducer';
 import { ADD, DELETE, CHANGED } from './constants';
 
 let nextId = 3;
-const initialTasks = [
+const initialTasks: TaskLib.ITask[] = [
   { id: 0, text: '劈材', done: true },
   { id: 1, text: '喂马', done: false },
   { id: 2, text: '环游世界', done: false }
@@ -14,7 +14,7 @@ const initialTasks = [
 export default function TaskApp() {
   const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 
-  function handleAddTask(text) {
+  function handleAddTask(text: string) {
     dispatch({
       type: ADD,
       id: nextId++,
@@ -22,14 +22,14 @@ export default function TaskApp() {
     });
   }
 
-  function handleChangeTask(task) {
+  function handleChangeTask(task: TaskLib.ITask) {
     dispatch({
       type: CHANGED,
       task: task
     });
   }
 
-  function handleDeleteTask(taskId) {
+  function handleDeleteTask(taskId: number) {
     dispatch({
       type: DELETE,
       id: taskId

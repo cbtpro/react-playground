@@ -13,16 +13,18 @@ export default function tasksReducer(tasks, action) {
       ];
     }
     case CHANGED: {
-      return tasks.map((t) => {
-        if (t.id === action.task.id) {
+      return tasks.map((task) => {
+        if (task.id === action.task.id) {
           return action.task;
         } else {
-          return t;
+          return task;
         }
       });
     }
     case DELETE: {
-      return tasks.filter((t) => t.id !== action.id);
+      return tasks.filter((task) => {
+        return task.id !== action.id;
+      });
     }
     default: {
       throw Error("未知 action：" + action.type);

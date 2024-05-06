@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-interface AddTask {}
+interface AddTask
 export default function AddTask({ onAddTask }) {
   const [text, setText] = useState('');
   return (
