@@ -2,16 +2,18 @@
   "dependencies": {
     "classnames": "2.5.1",
     "formik": "^2.4.6",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.12",
-    "@types/node": "^20.12.6",
-    "@types/react": "^18.2.75",
-    "@types/react-dom": "^18.2.24",
-    "react-scripts": "^5.0.0",
-    "typescript": "^4.9.5"
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.3",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "eslint": "^9.29.0",
+    "eslint-plugin-switch-case": "^3.0.1",
+    "react-scripts": "^5.0.1",
+    "typescript": "^5.8.3"
   },
   "keywords": [],
   "name": "react-playground",
@@ -21,6 +23,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "check:types": "tsc --noEmit",
+    "check:types:watch": "tsc --noEmit --watch",
+    "lint": "eslint \"src/**/*.{js,ts,jsx,tsx}\"",
+    "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
     "eject": "react-scripts eject"
   },
   "browserslist": {

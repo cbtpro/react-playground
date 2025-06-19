@@ -1,8 +1,23 @@
-import { ADD, DELETE, CHANGED } from "./constants";
+import { TaskActionType } from "./constants";
+import { assertNever } from './utils/assertNever';
 
-export default function tasksReducer(tasks, action) {
+// interface TasksReducerAction {
+//     type: TaskActionType;
+//     id?: number;
+//     text?: string;
+//     task?: TaskObject;
+//   }
+export type Action =
+  | { type: TaskActionType.ADD; id: number; text: string }
+  | { type: TaskActionType.CHANGED; task: TaskObject }
+  | { type: TaskActionType.DELETE; id: number }
+  // | { type: TaskActionType.DISABLED; id: number }
+export default function tasksReducer(tasks: TaskObject[], action: Action) {
   switch (action.type) {
-    case ADD: {
+    default:
+      // 这里的 action 会被推断为 never
+      return assertNever(action, '未知 action');
+    case TaskActionType.ADD:
       return [
         ...tasks,
         {
@@ -11,21 +26,15 @@ export default function tasksReducer(tasks, action) {
           done: false
         }
       ];
-    }
-    case CHANGED: {
-      return tasks.map((t) => {
-        if (t.id === action.task.id) {
+    case TaskActionType.CHANGED:
+      return tasks.map((t: TaskObject) => {
+        if (t.id === action?.task?.id) {
           return action.task;
         } else {
           return t;
         }
       });
-    }
-    case DELETE: {
-      return tasks.filter((t) => t.id !== action.id);
-    }
-    default: {
-      throw Error("未知 action：" + action.type);
-    }
+    case TaskActionType.DELETE:
+      return tasks.filter((t: TaskObject) => t.id !== action.id);
   }
 }

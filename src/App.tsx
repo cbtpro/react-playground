@@ -1,8 +1,8 @@
-import { useReducer } from 'react';
+import React, { useReducer } from 'react';
 import AddTask from './AddTask';
 import TaskList from './TaskList';
-import tasksReducer from './tasksReducer';
-import { ADD, DELETE, CHANGED } from './constants';
+import tasksReducer, { type Action } from './tasksReducer';
+import { TaskActionType } from './constants';
 
 let nextId = 3;
 /**
@@ -15,26 +15,26 @@ const initialTasks: TaskObject[] = [
 ];
 
 export default function TaskApp() {
-  const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+  const [tasks, dispatch] = useReducer<(state: TaskObject[], action: Action) => TaskObject[]>(tasksReducer, initialTasks);
 
-  function handleAddTask(text) {
+  function handleAddTask(text: string) {
     dispatch({
-      type: ADD,
+      type: TaskActionType.ADD,
       id: nextId++,
       text: text
     });
   }
 
-  function handleChangeTask(task) {
+  function handleChangeTask(task: TaskObject) {
     dispatch({
-      type: CHANGED,
+      type: TaskActionType.CHANGED,
       task: task
     });
   }
 
-  function handleDeleteTask(taskId) {
+  function handleDeleteTask(taskId: number) {
     dispatch({
-      type: DELETE,
+      type: TaskActionType.DELETE,
       id: taskId
     });
   }
@@ -45,8 +45,8 @@ export default function TaskApp() {
       <AddTask onAddTask={handleAddTask} />
       <TaskList
         tasks={tasks}
-        onChangeTask={handleChangeTask}
-        onDeleteTask={handleDeleteTask}
+        onChange={handleChangeTask}
+        onDelete={handleDeleteTask}
       />
     </>
   );

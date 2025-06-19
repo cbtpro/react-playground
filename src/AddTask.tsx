@@ -1,6 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-export default function AddTask({ onAddTask }) {
+interface AddTaskProps {
+  onAddTask: (text: string) => void;
+}
+
+export default function AddTask({ onAddTask }: AddTaskProps) {
   const [text, setText] = useState('');
   return (
     <>

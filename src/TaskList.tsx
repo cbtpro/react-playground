@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 
 import './Task.css'
 
-function Task({ task, onChange, onDelete }) {
+interface TaskProps {
+  task: TaskObject;
+  onChange: (task: TaskObject) => void;
+  onDelete: (taskId: number) => void;
+}
+function Task({ task, onChange, onDelete }: TaskProps) {
   const [isEditing, setIsEditing] = useState(false);
   let taskContent;
   if (isEditing) {
@@ -30,7 +35,7 @@ function Task({ task, onChange, onDelete }) {
     );
   }
   const itemClassName = classNames({
-    'item': !isEditing, 
+    'item': !isEditing,
   })
   return (
     <label className={itemClassName}>
@@ -50,12 +55,17 @@ function Task({ task, onChange, onDelete }) {
   );
 }
 
-export default function TaskList({ tasks, onChangeTask, onDeleteTask }) {
+interface TaskListProps {
+  tasks: TaskObject[];
+  onChange: (task: TaskObject) => void;
+  onDelete: (taskId: number) => void;
+}
+export default function TaskList({ tasks, onChange, onDelete }: TaskListProps) {
   return (
     <ul>
-      {tasks.map((task) => (
+      {tasks.map((task: TaskObject) => (
         <li key={task.id}>
-          <Task task={task} onChange={onChangeTask} onDelete={onDeleteTask} />
+          <Task task={task} onChange={onChange} onDelete={onDelete} />
         </li>
       ))}
     </ul>

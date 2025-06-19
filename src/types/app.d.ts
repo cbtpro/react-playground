@@ -1,7 +1,11 @@
 /**
+ * 应用类型定义
+ */
+
+/**
  * 任务定义
  */
-interface TaskObject {
+declare interface TaskObject {
     /**
      * id
      */
