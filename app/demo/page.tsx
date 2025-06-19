@@ -3,7 +3,7 @@
 import React, { useReducer } from 'react';
 import AddTask from './AddTask';
 import TaskList from './TaskList';
-import tasksReducer, { type Action } from './tasksReducer';
+import tasksReducer from './tasksReducer';
 import { TaskActionType } from './constants';
 import Counter from './counter-example';
 import TodoList from './todo-list';
