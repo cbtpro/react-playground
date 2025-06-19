@@ -5,7 +5,10 @@ import tasksReducer from './tasksReducer';
 import { ADD, DELETE, CHANGED } from './constants';
 
 let nextId = 3;
-const initialTasks = [
+/**
+ * 初始值
+ */
+const initialTasks: TaskObject[] = [
   { id: 0, text: '劈材', done: true },
   { id: 1, text: '喂马', done: false },
   { id: 2, text: '环游世界', done: false }
