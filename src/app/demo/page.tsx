@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import TodoListDemo from './todo-list-demo';
 import Counter from './counter-example';
 import TodoList from './todo-list';
+import FormikDemo from './components/formik-demo';
 
 import styles from './page.module.css';
 
@@ -13,5 +14,6 @@ export default function Demo() {
       <TodoListDemo  />
       <Counter />
       <TodoList />
+      <FormikDemo />
   </div>)
 };
