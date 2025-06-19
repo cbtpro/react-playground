@@ -81,7 +81,7 @@ export default function TodoList() {
   const completedCount = state.todos.filter((todo) => todo.completed).length
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div className="p-6 max-w-md mx-auto bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-4">Todo List</h2>
 
       <form onSubmit={handleSubmit} className="mb-4">
@@ -90,7 +90,7 @@ export default function TodoList() {
             type="text"
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            placeholder="Add a new todo..."
+            placeholder="添加新的TODO..."
             className="flex-1 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
@@ -98,7 +98,7 @@ export default function TodoList() {
             className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 flex items-center gap-1"
           >
             <Plus size={16} />
-            Add
+            新增
           </button>
         </div>
       </form>
@@ -134,12 +134,12 @@ export default function TodoList() {
 
       <div className="flex justify-between items-center text-sm text-gray-600">
         <span>
-          {state.todos.length} total, {completedCount} completed
+          总计 {state.todos.length}, 完成 {completedCount}
         </span>
 
         {completedCount > 0 && (
           <button onClick={() => dispatch({ type: "CLEAR_COMPLETED" })} className="text-red-500 hover:text-red-700">
-            Clear completed
+            清除完成
           </button>
         )}
       </div>

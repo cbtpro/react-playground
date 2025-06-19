@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
 import styles from './task.module.css';
 
 interface TaskProps {
@@ -20,20 +21,22 @@ function Task({ task, onChange, onDelete }: TaskProps) {
               text: e.target.value
             });
           }}
+          placeholder='请输入任务内容'
+          className="flex-1 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        <button onClick={() => setIsEditing(false)}>Save</button>
+        <button onClick={() => setIsEditing(false)}>保存</button>
       </>
     );
   } else {
     taskContent = (
-      <>
-        {task.text}
-        <button onClick={() => setIsEditing(true)}>编辑</button>
-      </>
+      <div className="flex py-2">
+        {task.text || '空'}
+        <button onClick={() => setIsEditing(true)} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">编辑</button>
+      </div>
     );
   }
   return (
-    <label className={styles.item}>
+    <label className={classNames(styles.item, "mb-4 group flex gap-2")}>
       <input
         type="checkbox"
         checked={task.done}
@@ -45,7 +48,7 @@ function Task({ task, onChange, onDelete }: TaskProps) {
         }}
       />
       {taskContent}
-      <button onClick={() => onDelete(task.id)}>删除</button>
+      <button onClick={() => onDelete(task.id)} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">删除</button>
     </label>
   );
 }
@@ -57,7 +60,7 @@ interface TaskListProps {
 }
 export default function TaskList({ tasks, onChange, onDelete }: TaskListProps) {
   return (
-    <ul>
+    <ul className="mt-4">
       {tasks.map((task: TaskObject) => (
         <li key={task.id}>
           <Task task={task} onChange={onChange} onDelete={onDelete} />
