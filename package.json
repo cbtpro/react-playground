@@ -1,44 +1,26 @@
 {
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
-    "classnames": "2.5.1",
-    "formik": "^2.4.6",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "lucide-react": "^0.518.0",
+    "next": "15.3.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "@types/node": "^24.0.3",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "eslint": "^9.29.0",
-    "eslint-plugin-switch-case": "^3.0.1",
-    "react-scripts": "^5.0.1",
-    "typescript": "^5.8.3"
-  },
-  "keywords": [],
-  "name": "react-playground",
-  "description": "",
-  "version": "0.0.31",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "check:types": "tsc --noEmit",
-    "check:types:watch": "tsc --noEmit --watch",
-    "lint": "eslint \"src/**/*.{js,ts,jsx,tsx}\"",
-    "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
-    "eject": "react-scripts eject"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.4",
+    "typescript": "^5"
   }
 }

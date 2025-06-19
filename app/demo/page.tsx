@@ -1,8 +1,15 @@
+'use client';
+
 import React, { useReducer } from 'react';
 import AddTask from './AddTask';
 import TaskList from './TaskList';
 import tasksReducer, { type Action } from './tasksReducer';
 import { TaskActionType } from './constants';
+import Counter from './counter-example';
+import TodoList from './todo-list';
+
+import styles from './page.module.css';
+
 
 let nextId = 3;
 /**
@@ -14,8 +21,10 @@ const initialTasks: TaskObject[] = [
   { id: 2, text: '环游世界', done: false }
 ];
 
-export default function TaskApp() {
-  const [tasks, dispatch] = useReducer<(state: TaskObject[], action: Action) => TaskObject[]>(tasksReducer, initialTasks);
+
+export default function Demo() {
+
+  const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 
   function handleAddTask(text: string) {
     dispatch({
@@ -39,15 +48,15 @@ export default function TaskApp() {
     });
   }
 
-  return (
-    <>
-      <h1>日程安排</h1>
+  return (<div className={styles.demo}>
+    <h1>日程安排</h1>
       <AddTask onAddTask={handleAddTask} />
       <TaskList
         tasks={tasks}
         onChange={handleChangeTask}
         onDelete={handleDeleteTask}
       />
-    </>
-  );
-}
+      <Counter />
+      <TodoList />
+  </div>)
+};

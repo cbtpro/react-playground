@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
-
-import './Task.css'
+import styles from './task.module.css';
 
 interface TaskProps {
   task: TaskObject;
@@ -34,11 +32,8 @@ function Task({ task, onChange, onDelete }: TaskProps) {
       </>
     );
   }
-  const itemClassName = classNames({
-    'item': !isEditing,
-  })
   return (
-    <label className={itemClassName}>
+    <label className={styles.item}>
       <input
         type="checkbox"
         checked={task.done}

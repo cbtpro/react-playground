@@ -1,12 +1,6 @@
 import { TaskActionType } from "./constants";
 import { assertNever } from './utils/assertNever';
 
-// interface TasksReducerAction {
-//     type: TaskActionType;
-//     id?: number;
-//     text?: string;
-//     task?: TaskObject;
-//   }
 export type Action =
   | { type: TaskActionType.ADD; id: number; text: string }
   | { type: TaskActionType.CHANGED; task: TaskObject }
