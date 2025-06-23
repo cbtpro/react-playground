@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function DisplayFormikState(props) {
+export default function DisplayFormikState(props: unknown) {
   return (
     <div style={{ margin: "1rem 0" }}>
       <h3 style={{ fontFamily: "monospace" }} />
